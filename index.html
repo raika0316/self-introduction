@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>自己紹介</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    img {
+      width: 200px;
+      border-radius: 10px;
+    }
+    table {
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 8px 12px;
+    }
+    th {
+      background-color: #eee;
+    }
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>自己紹介</h1>
+
+  <!-- 基本情報 -->
+  <p><strong>名前:</strong> あなたの名前</p>
+  <p><strong>誕生日:</strong> 2000年1月1日</p>
+  <p><strong>出身:</strong> ○○県</p>
+  <p><strong>趣味:</strong> ゲーム、映画鑑賞</p>
+
+  <!-- 画像 -->
+  <h2>プロフィール画像</h2>
+  <img src="your-image.jpg" alt="プロフィール画像">
+
+  <!-- 目標テーブル -->
+  <h2>入社までの目標</h2>
+
+  <table id="goalTable">
+    <tr>
+      <th>期限</th>
+      <th>目標</th>
+    </tr>
+    <tr>
+      <td contenteditable="true">2026年4月</td>
+      <td contenteditable="true">HTMLとCSSを習得</td>
+    </tr>
+    <tr>
+      <td contenteditable="true">2026年6月</td>
+      <td contenteditable="true">JavaScriptを理解</td>
+    </tr>
+  </table>
+
+  <button onclick="addRow()">行を追加</button>
+
+  <script>
+    function addRow() {
+      const table = document.getElementById("goalTable");
+      const newRow = table.insertRow();
+
+      const cell1 = newRow.insertCell(0);
+      const cell2 = newRow.insertCell(1);
+
+      cell1.contentEditable = "true";
+      cell2.contentEditable = "true";
+
+      cell1.innerText = "期限";
+      cell2.innerText = "目標";
+    }
+  </script>
+
+</body>
+</html>
