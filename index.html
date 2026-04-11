@@ -1,42 +1,55 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
-  <title>自己紹介</title>
-  <style>
-  </style>
+  <title>自己紹介サイト</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container">
+  <!-- メニューボタン -->
+  <div id="menu-btn">☰</div>
 
-  <h1>自己紹介</h1>
+  <!-- メニュー -->
+  <nav id="menu" class="hidden">
+    <ul>
+      <li onclick="showPage('home')">ホーム</li>
+      <li onclick="showPage('profile')">自己紹介</li>
+      <li onclick="showPage('recent')">最近の状況</li>
+      <li onclick="showPage('goal')">入社までの目標</li>
+      <li onclick="showPage('history')">経歴</li>
+    </ul>
+  </nav>
 
- <div class="section profile">
-  <!-- 基本情報 -->
-  <p><strong>名前:</strong> 箱山 来佳（はこやま らいか）</p>
-  <p><strong>誕生日:</strong> 2005年3月16日 21歳</p>
-  <p><strong>出身:</strong> 長野県長野市</p>
-  <p><strong>大学:</strong> 金沢工業大学 環境・応用化学科</p>
-  <p><strong>専攻:</strong> 土や海で分解するプラスチック（学長の研究室）</p>
-  <p><strong>趣味:</strong> サッカー、音楽、料理、旅行、占い</p>
-  <p><strong>MBTI:</strong> 討論者 ENTP-T</p>
-</div>
+  <!-- 各ページ -->
+  <section id="home" class="page">
+    <h1>このサイトの目的</h1>
+    <p>箱山来佳をより知ってもらうためのサイトです！</p>
+  </section>
 
-  <!-- 画像 -->
-   <div class="section">
-  <h2>プロフィール画像</h2>
-  <div class="images">
+  <section id="profile" class="page hidden">
+    <h1>自己紹介</h1>
+    <p><strong>名前:</strong> 箱山 来佳（はこやま らいか）</p>
+    <p><strong>誕生日:</strong> 2005年3月16日 21歳</p>
+    <p><strong>出身:</strong> 長野県長野市</p>
+    <p><strong>大学:</strong> 金沢工業大学 環境・応用化学科</p>
+    <p><strong>専攻:</strong> 土や海で分解するプラスチック（学長の研究室）</p>
+    <p><strong>趣味:</strong> サッカー、音楽、料理、旅行、占い</p>
+    <p><strong>MBTI:</strong> 討論者 ENTP-T</p>
+  </section>
+
+  <section id="recent" class="page hidden">
+   <h1>最近の状況</h1>
+   <div class="images">
     <img src="images/Sousy-Dog.jpg" alt="大好きなもの1">
     <img src="images/Umageki.jpg" alt="大好きなもの2">
-    <img src="images/Shodo.jpg" alt="2026年目標">
-  </div>
+    <img src="images/Shodo.jpg" alt="2026年目標"> 
    </div>
+  </section>
 
-  <!-- 目標テーブル -->
-   <div class="section">
-  <h2>入社までの目標</h2>
+  <section id="goal" class="page hidden">
+  <h1>入社までの目標</h1>
 
   <table id="goalTable">
     <tr>
@@ -56,26 +69,13 @@
 
   <button onclick="addRow()">行を追加</button>
 
-  <script>
-    function addRow() {
-      const table = document.getElementById("goalTable");
-      const newRow = table.insertRow();
+  </section>
 
-      const cell1 = newRow.insertCell(0);
-      const cell2 = newRow.insertCell(1);
+  <section id="history" class="page hidden">
+    <h1>経歴</h1>
+    <p>これまでの流れ</p>
+  </section>
 
-      cell1.contentEditable = "true";
-      cell2.contentEditable = "true";
-
-      cell1.innerText = "期限";
-      cell2.innerText = "目標";
-    }
-  </script>
-
-   </div>
-
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
