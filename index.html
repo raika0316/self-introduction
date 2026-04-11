@@ -1,37 +1,19 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <title>自己紹介</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-    }
-    img {
-      width: 200px;
-      border-radius: 10px;
-    }
-    table {
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-    th, td {
-      border: 1px solid #333;
-      padding: 8px 12px;
-    }
-    th {
-      background-color: #eee;
-    }
-    button {
-      margin-top: 10px;
-    }
   </style>
 </head>
 <body>
 
+<div class="container">
+
   <h1>自己紹介</h1>
 
+ <div class="section profile">
   <!-- 基本情報 -->
   <p><strong>名前:</strong> 箱山 来佳（はこやま らいか）</p>
   <p><strong>誕生日:</strong> 2005年3月16日 21歳</p>
@@ -40,15 +22,20 @@
   <p><strong>専攻:</strong> 土や海で分解するプラスチック（学長の研究室）</p>
   <p><strong>趣味:</strong> サッカー、音楽、料理、旅行、占い</p>
   <p><strong>MBTI:</strong> 討論者 ENTP-T</p>
+</div>
 
   <!-- 画像 -->
+   <div class="section">
   <h2>プロフィール画像</h2>
-  <img src="images/Sousy-Dog.jpeg" alt="大好きなもの1">
-  <img src="images/Umageki.jpg" alt="大好きなもの2">
-  <img src="images/Shodo.jpeg" alt="2026年目標">
-
+  <div class="images">
+    <img src="images/Sousy-Dog.jpg" alt="大好きなもの1">
+    <img src="images/Umageki.jpg" alt="大好きなもの2">
+    <img src="images/Shodo.jpg" alt="2026年目標">
+  </div>
+   </div>
 
   <!-- 目標テーブル -->
+   <div class="section">
   <h2>入社までの目標</h2>
 
   <table id="goalTable">
@@ -85,5 +72,10 @@
     }
   </script>
 
+   </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
