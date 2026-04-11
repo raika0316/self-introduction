@@ -1,0 +1,153 @@
+
+body {
+  background: linear-gradient(120deg,#e1f3f8, #7be2ff);
+}
+
+/*下から文字が出てくる*/
+.section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 2.5s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 全体を中央に */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+/* タイトル */
+h1 {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+h1 {
+  position: relative;
+}
+ /*下線が動く*/
+h1::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  background: black;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  animation: line 1s forwards;
+}
+
+@keyframes line {
+  to {
+    width: 100%;
+  }
+}
+
+/* セクションタイトル */
+h2 {
+  font-size: 24px;
+  margin-top: 80px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* テキスト */
+p {
+  line-height: 1.8;
+  margin: 5px 0;
+}
+
+/* 画像（横並びで余白広め） */
+.images {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.images img {
+  width: 30%;
+  border-radius: 8px;
+}
+
+.images img {
+  transition: 0.3s;
+}
+
+/*画像に触れるとホバーする*/
+.images img:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* テーブル（シンプル） */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th {
+  text-align: left;
+  border-bottom: 2px solid #000;
+  padding: 10px 0;
+}
+
+td {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+/* ボタン */
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: 1px solid #000;
+  background: transparent;
+  cursor: pointer;
+}
+
+/*ボタンに触れると色変わる*/
+button {
+  border: 1px solid black;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background: black;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+button:hover::before {
+  width: 100%;
+}
+
+button:hover {
+  color: white;
+}
+
+
+button:hover {
+  background: #000;
+  color: #fff;
+}
+
+body {
+  background: linear-gradient(120deg,#e1f3f8, #7be2ff);
+}
