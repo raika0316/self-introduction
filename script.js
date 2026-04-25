@@ -48,3 +48,23 @@ function addRow() {
   cell1.innerText = "期限";
   cell2.innerText = "目標";
 }
+
+//ダークモード
+const toggleBtn = document.getElementById("dark-toggle");
+
+// 保存されてたら適用
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+}
+
+// クリックで切替
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  // 保存
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+});
