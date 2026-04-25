@@ -1,48 +1,175 @@
+/* ===== 全体設定 ===== */
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
+  background-color: #f5f8fc;
+  color: #333;
 }
 
-/* ページ表示切り替え */
+/* ===== 見出し ===== */
+h1 {
+  color: #1e3a8a;
+  border-bottom: 3px solid #3b82f6;
+  padding-bottom: 5px;
+}
+
+h2 {
+  color: #2563eb;
+}
+
+/* ===== メニューボタン ===== */
+#menu-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 24px;
+  background-color: #3b82f6;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: 0.3s;
+}
+
+#menu-btn:hover {
+  background-color: #2563eb;
+}
+
+/* ===== メニュー ===== */
+#menu {
+  position: fixed;
+  top: 60px;
+  left: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 10px;
+  width: 200px;
+}
+
+#menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#menu li {
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#menu li:hover {
+  background-color: #e0ecff;
+}
+
+/* ===== ページ ===== */
 .page {
-  padding: 50px;
+  padding: 80px 20px 20px 20px;
+  max-width: 800px;
+  margin: auto;
 }
 
 .hidden {
   display: none;
 }
 
-/* メニューボタン */
-#menu-btn {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  font-size: 30px;
-  cursor: pointer;
+/* ===== ボタン（詳しく知る） ===== */
+.link-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
 }
 
-/* メニュー */
-#menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 200px;
-  background: #333;
+.link-buttons button {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: white;
-  padding-top: 50px;
-  border-radius: 0 10px 10px 0;
-}
-
-#menu ul {
-  list-style: none;
-  padding: 0;
-}
-
-#menu li {
-  padding: 15px;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-#menu li:hover {
-  background: #555;
+.link-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+/* ===== 画像 ===== */
+.images {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.images img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* ===== テーブル ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th {
+  background-color: #3b82f6;
+  color: white;
+  padding: 10px;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #f0f6ff;
+}
+
+/* ===== タイムライン ===== */
+.timeline {
+  border-left: 3px solid #3b82f6;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+
+.event {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.event::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  background-color: #3b82f6;
+  border-radius: 50%;
+}
+
+/* ===== アニメーション ===== */
+.page {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
