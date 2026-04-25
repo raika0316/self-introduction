@@ -1,20 +1,45 @@
-/* ===== 全体設定 ===== */
+/* ===== カラーパレット ===== */
+:root {
+  /* ライトモード */
+  --bg: #f5f8fc;
+  --text: #333;
+  --primary: #3b82f6;
+  --primary-dark: #1e3a8a;
+  --secondary: #2563eb;
+  --card: #ffffff;
+  --border: #ddd;
+  --hover: #e0ecff;
+}
+
+/* ダークモード */
+body.dark {
+  --bg: #0f172a;
+  --text: #e5e7eb;
+  --primary: #60a5fa;
+  --primary-dark: #bfdbfe;
+  --secondary: #93c5fd;
+  --card: #1e293b;
+  --border: #334155;
+  --hover: rgba(96, 165, 250, 0.2);
+}
+
+/* ===== 全体 ===== */
 body {
   margin: 0;
   font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
-  background-color: #f5f8fc;
-  color: #333;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 /* ===== 見出し ===== */
 h1 {
-  color: #1e3a8a;
-  border-bottom: 3px solid #3b82f6;
+  color: var(--primary-dark);
+  border-bottom: 3px solid var(--primary);
   padding-bottom: 5px;
 }
 
 h2 {
-  color: #2563eb;
+  color: var(--secondary);
 }
 
 /* ===== メニューボタン ===== */
@@ -23,7 +48,7 @@ h2 {
   top: 15px;
   left: 15px;
   font-size: 24px;
-  background-color: #3b82f6;
+  background-color: var(--primary);
   color: white;
   padding: 10px 15px;
   border-radius: 8px;
@@ -33,7 +58,7 @@ h2 {
 }
 
 #menu-btn:hover {
-  background-color: #2563eb;
+  background-color: var(--secondary);
 }
 
 /* ===== メニュー ===== */
@@ -41,7 +66,7 @@ h2 {
   position: fixed;
   top: 60px;
   left: 15px;
-  background-color: white;
+  background-color: var(--card);
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   padding: 10px;
@@ -62,7 +87,7 @@ h2 {
 }
 
 #menu li:hover {
-  background-color: #e0ecff;
+  background-color: var(--hover);
 }
 
 /* ===== ページ ===== */
@@ -70,13 +95,14 @@ h2 {
   padding: 80px 20px 20px 20px;
   max-width: 800px;
   margin: auto;
+  animation: fadeIn 0.4s ease;
 }
 
 .hidden {
   display: none;
 }
 
-/* ===== ボタン（詳しく知る） ===== */
+/* ===== ボタン ===== */
 .link-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -85,7 +111,7 @@ h2 {
 }
 
 .link-buttons button {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: white;
   border: none;
   padding: 10px 15px;
@@ -121,23 +147,23 @@ table {
 }
 
 th {
-  background-color: #3b82f6;
+  background-color: var(--primary);
   color: white;
   padding: 10px;
 }
 
 td {
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
   padding: 10px;
 }
 
 tr:nth-child(even) {
-  background-color: #f0f6ff;
+  background-color: var(--hover);
 }
 
 /* ===== タイムライン ===== */
 .timeline {
-  border-left: 3px solid #3b82f6;
+  border-left: 3px solid var(--primary);
   padding-left: 20px;
   margin-top: 20px;
 }
@@ -149,21 +175,23 @@ tr:nth-child(even) {
 
 .event::before {
   content: "";
-  position: absolute;
-  display:none;
-  left: -12px;
-  top: 5px;
-  width: 10px;
-  height: 10px;
-  background-color: #3b82f6;
-  border-radius: 50%;
+  display: none;
+}
+
+/* ===== ダークモードボタン ===== */
+#dark-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
 }
 
 /* ===== アニメーション ===== */
-.page {
-  animation: fadeIn 0.4s ease;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -175,51 +203,17 @@ tr:nth-child(even) {
   }
 }
 
-/* ダークモード時 */
-body.dark {
-  background-color: #1a1a1a;
-  color: #f5f5f5;
-}
-
-/* ダークモード カードやメニューも変える */
-body.dark #menu {
-  background-color: #2a2a2a;
-}
-
-body.dark th {
-  background-color: #444;
-}
-
-body.dark td {
-  border-color: #555;
-}
-
-#dark-toggle {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 8px;
-  background-color: #3b82f6;
-  color: white;
-  cursor: pointer;
-}
-
-/* スマホ画面 */
+/* ===== レスポンシブ ===== */
 @media (max-width: 600px) {
 
-  /* 全体余白 */
   .page {
     padding: 70px 10px;
   }
 
-  /* メニュー幅 */
   #menu {
     width: 150px;
   }
 
-  /* ボタン縦並び */
   .link-buttons {
     flex-direction: column;
   }
@@ -228,7 +222,6 @@ body.dark td {
     width: 100%;
   }
 
-  /* 画像を縦並び */
   .images {
     flex-direction: column;
   }
@@ -237,7 +230,6 @@ body.dark td {
     max-width: 100%;
   }
 
-  /* テーブル文字小さく */
   table {
     font-size: 14px;
   }
