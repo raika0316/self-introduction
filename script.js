@@ -1,26 +1,93 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  // =========================
+  // メニュー
+  // =========================
   const menu = document.getElementById("menu");
   const menuBtn = document.getElementById("menu-btn");
 
-  // メニュー開閉
-  menuBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    menu.classList.toggle("hidden");
+  if (menuBtn && menu) {
+    menuBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      menu.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (
+        !menu.classList.contains("hidden") &&
+        !menu.contains(e.target) &&
+        !menuBtn.contains(e.target)
+      ) {
+        menu.classList.add("hidden");
+      }
+    });
+  }
+
+  // =========================
+  // ダークモード
+  // =========================
+  const toggleBtn = document.getElementById("dark-toggle");
+
+  // 初期状態
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+  }
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    });
+  }
+
+  // =========================
+  // 画像モーダル
+  // =========================
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+  const closeBtn = document.getElementById("close");
+
+  // クリックをまとめて処理（安定）
+  document.addEventListener("click", (e) => {
+
+    // 画像クリック
+    if (e.target.matches(".images img")) {
+      if (modal && modalImg) {
+        modal.classList.add("active");
+        modalImg.src = e.target.src;
+
+        // 背景スクロール防止
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    // 閉じるボタン
+    if (e.target.id === "close") {
+      if (modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    // 背景クリックで閉じる
+    if (e.target.id === "modal") {
+      modal.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+
   });
 
-  // 外クリックで閉じる
-  document.addEventListener("click", (e) => {
-    if (
-      !menu.classList.contains("hidden") &&
-      !menu.contains(e.target) &&
-      !menuBtn.contains(e.target)
-    ) {
-      menu.classList.add("hidden");
-    }
-  });
 });
 
-// ページ切り替え
+
+// =========================
+// ページ切り替え（外でOK）
+// =========================
 function showPage(pageId) {
   const pages = document.querySelectorAll(".page");
 
@@ -31,12 +98,20 @@ function showPage(pageId) {
   document.getElementById(pageId).classList.remove("hidden");
 
   // メニュー閉じる
-  document.getElementById("menu").classList.add("hidden");
+  const menu = document.getElementById("menu");
+  if (menu) {
+    menu.classList.add("hidden");
+  }
 }
 
-// 行追加
+
+// =========================
+// 行追加（外でOK）
+// =========================
 function addRow() {
   const table = document.getElementById("goalTable");
+  if (!table) return;
+
   const newRow = table.insertRow();
 
   const cell1 = newRow.insertCell(0);

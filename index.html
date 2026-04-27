@@ -1,152 +1,160 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>自己紹介サイト</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+  <!DOCTYPE html>
+  <html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>自己紹介サイト</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
 
-<body>
+  <body>
 
-  <!-- メニューボタン -->
-  <div id="menu-btn">☰</div>
+    <!-- メニューボタン -->
+    <div id="menu-btn">☰</div>
 
-  <!-- メニュー -->
-  <nav id="menu" class="hidden">
-    <ul>
-      <li onclick="showPage('home')">ホーム</li>
-      <li onclick="showPage('profile')">自己紹介</li>
-      <li onclick="showPage('recent')">最近の状況</li>
-      <li onclick="showPage('goal')">入社までの目標</li>
-      <li onclick="showPage('history')">経歴</li>
-    </ul>
-  </nav>
+    <!-- メニュー -->
+    <nav id="menu" class="hidden">
+      <ul>
+        <li onclick="showPage('home')">ホーム</li>
+        <li onclick="showPage('profile')">自己紹介</li>
+        <li onclick="showPage('recent')">最近の状況</li>
+        <li onclick="showPage('goal')">入社までの目標</li>
+        <li onclick="showPage('history')">経歴</li>
+      </ul>
+    </nav>
 
-  <!-- 各ページ -->
-  <section id="home" class="page">
-   <h1>ホーム</h1>
-    <p>大学では環境問題の解決に興味を持ち、土や海で分解するプラスチックの研究を行っています。</p>
-    <p>研究の合間でWeb開発（HTML / CSS / JavaScript）を学び、IT技術で社会に貢献できる人材を目指しています。</p>
+    <!-- 各ページ -->
+    <section id="home" class="page">
+    <h1>ホーム</h1>
+      <p>大学では環境問題の解決に興味を持ち、土や海で分解するプラスチックの研究を行っています。</p>
+      <p>研究の合間でWeb開発（HTML / CSS / JavaScript）を学び、IT技術で社会に貢献できる人材を目指しています。</p>
 
-  <h2>詳しく知る</h2>
+    <h2>詳しく知る</h2>
 
-<div class="link-buttons">
-  <button onclick="showPage('profile')">自己紹介</button>
-  <button onclick="showPage('recent')">最近の状況</button>
-  <button onclick="showPage('goal')">入社までの目標</button>
-  <button onclick="showPage('history')">経歴</button>
+  <div class="link-buttons">
+    <button onclick="showPage('profile')">自己紹介</button>
+    <button onclick="showPage('recent')">最近の状況</button>
+    <button onclick="showPage('goal')">入社までの目標</button>
+    <button onclick="showPage('history')">経歴</button>
+  </div>
+
+
+    </section>
+
+    <section id="profile" class="page hidden">
+      <h1>自己紹介</h1>
+      <p><strong>名前:</strong> らいか</p>
+      <p><strong>誕生日:</strong> 2005年生まれ 21歳 27卒</p>
+      <p><strong>出身:</strong> 長野県</p>
+      <p><strong>大学:</strong> 金沢工業大学</p>
+      <p><strong>専攻:</strong> 化学専攻 土や海で分解するプラスチック</p>
+      <p><strong>趣味:</strong> サッカー、音楽、料理、ラーメン、旅行</p>
+      <p><strong>MBTI:</strong> 討論者 ENTP or 運動家 ENFP</p>
+    </section>
+
+    <section id="recent" class="page hidden">
+    <h1>最近の状況</h1>
+    <div class="images">
+      <img src="images/Sousy-Dog.jpg" alt="大好きなもの1">
+      <img src="images/Umageki.jpg" alt="大好きなもの2">
+      <img src="images/Shodo.jpg" alt="2026年目標"> 
+    </div>
+    </section>
+
+    <section id="goal" class="page hidden">
+    <h1>入社までの目標</h1>
+
+    <table id="goalTable">
+      <tr>
+        <th>期限</th>
+        <th>目標</th>
+
+      </tr>
+      <tr>
+        <td contenteditable="true">2026年3～4月</td>
+        <td contenteditable="true">自己紹介用のサイト作成</td>
+      </tr>
+      <tr>
+        <td contenteditable="true">2026年5～6月</td>
+        <td contenteditable="true">To Doリストのサイト作成</td>
+      </tr>
+    </table>
+
+    <button onclick="addRow()">行を追加</button>
+
+    </section>
+
+    <section id="history" class="page hidden">
+      <h1>経歴（高校～現在）</h1>
+
+    <div class="timeline">
+
+      <div class="event">
+        <h2>高校時代</h2>
+
+        <p>＜サッカー部＞</p>
+        <p>顧問や先輩が部活に来ないほどの弱小校。自ら練習メニューとスタメン、戦略を考えた。</p>
+        <p>だんだん公式戦で勝利できるようになったが最後の大会では二回戦負け。</p>
+
+        <p>＜生徒会体育委員長＞</p>
+        <p>クラスマッチや体育祭の企画、運営を行った。</p>
+        <p>最後の体育祭は猛暑のため中止となってしまったが、人と協力し何かを作り上げるやりがいを感じた。</p>
+
+        <p>＜大学受験＞</p>
+        <P>22時までは家に帰らないというルールで毎日勉強した。</P>
+        <p>第一志望だけでなく滑り止めもすべて落ちてしまい挫折を経験。</p>
+      </div>
+
+      <div class="event">
+        <h2>大学</h2>
+
+        <p>＜化学＞</p>
+        <p>幅広く色々なことを学ぶことができ、将来の可能性が広がると考え、化学分野を専攻。</p>
+        <P>土や海で分解可能なプラスチックの研究を本学の学長の研究室で行っている。</P>
+        
+        <p>＜アルバイト＞</p>
+        <p>初アルバイトの居酒屋で月150時間以上の労働、毎勤務後の説教に1年間たえ、成績が下がったため退職。</p>
+        <p>現在は飲食店と資格を取得したためガソリンスタンドで勤務。</p>
+        
+        <p>＜課外活動＞</p>
+        <p>北陸で有名なラーメンチェーン店（８番らーめん）と協力し、石川（北陸）を元気づけるプロジェクトに参加。</p>
+        <p>2年次から商品開発班のリーダーを務め、4年間で立ち上げから新商品を二回開発し販売まで行った。</p>
+        <p>URL</p>
+
+        <p>＜スポーツ＞</p>
+        <p>フットサルサークルに1～3年次まで所属。</p>
+        <p>2年次からアルバイト先の仲間たちとフットサルチームを作り、社会人の方たちと試合を行っている。</p>
+      
+        <p>＜就職活動＞</p>
+        <p>始めは食品関係に興味があったが、能登半島地震でのITの活躍とAIの発展に感動し、IT企業を志す。</p>
+        <p>人と協力し何かを作り上げることが好きで、自分の強みである継続力と行動力を生かせるエンジニアを志す。</p>
+        <P>自営業をしている父の影響で、マネジメントや教育、経営などにも興味があり、いずれはリーダーのようなポジションにつきたい。</P>
+      </div>
+
+      <div class="event">
+        <h2>現在</h2>
+        <p>＜取り組み＞</p>
+        <p>卒業研究として土や海で分解可能なプラスチックの研究を本学の学長の研究室で行っている。</p>
+        <p>Web開発の学習を3月から開始し、HTML/CSS/JavaScriptで自己紹介サイトを作成している。</p>
+        <p>基本情報技術者の資格取得に向けて勉強をしている。</p>
+
+        <p>＜取得資格＞</p>
+        <p>普通自動車免許</p>
+        <p>危険物取扱者甲種</p>
+        <p>ITパスポート</p>
+        <p>学長褒賞4回</p>
+      </div>
+
+    </div>
+  </section>
+
+  <button id="dark-toggle">🌙</button>
+
+<div id="modal" class="hidden">
+  <span id="close">&times;</span>
+  <img id="modal-img">
 </div>
 
-
-  </section>
-
-  <section id="profile" class="page hidden">
-    <h1>自己紹介</h1>
-    <p><strong>名前:</strong> らいか</p>
-    <p><strong>誕生日:</strong> 2005年生まれ 21歳 27卒</p>
-    <p><strong>出身:</strong> 長野県</p>
-    <p><strong>大学:</strong> 金沢工業大学</p>
-    <p><strong>専攻:</strong> 化学専攻 土や海で分解するプラスチック</p>
-    <p><strong>趣味:</strong> サッカー、音楽、料理、ラーメン、旅行</p>
-    <p><strong>MBTI:</strong> 討論者 ENTP or 運動家 ENFP</p>
-  </section>
-
-  <section id="recent" class="page hidden">
-   <h1>最近の状況</h1>
-   <div class="images">
-    <img src="images/Sousy-Dog.jpg" alt="大好きなもの1">
-    <img src="images/Umageki.jpg" alt="大好きなもの2">
-    <img src="images/Shodo.jpg" alt="2026年目標"> 
-   </div>
-  </section>
-
-  <section id="goal" class="page hidden">
-  <h1>入社までの目標</h1>
-
-  <table id="goalTable">
-    <tr>
-      <th>期限</th>
-      <th>目標</th>
-
-    </tr>
-    <tr>
-      <td contenteditable="true">2026年3～4月</td>
-      <td contenteditable="true">自己紹介用のサイト作成</td>
-    </tr>
-    <tr>
-      <td contenteditable="true">2026年5～6月</td>
-      <td contenteditable="true">To Doリストのサイト作成</td>
-    </tr>
-  </table>
-
-  <button onclick="addRow()">行を追加</button>
-
-  </section>
-
-  <section id="history" class="page hidden">
-    <h1>経歴（高校～現在）</h1>
-
-  <div class="timeline">
-
-    <div class="event">
-      <h2>高校時代</h2>
-
-      <p>＜サッカー部＞</p>
-      <p>顧問や先輩が部活に来ないほどの弱小校。自ら練習メニューとスタメン、戦略を考えた。</p>
-      <p>だんだん公式戦で勝利できるようになったが最後の大会では二回戦負け。</p>
-
-      <p>＜生徒会体育委員長＞</p>
-      <p>クラスマッチや体育祭の企画、運営を行った。</p>
-      <p>最後の体育祭は猛暑のため中止となってしまったが、人と協力し何かを作り上げるやりがいを感じた。</p>
-
-      <p>＜大学受験＞</p>
-      <P>22時までは家に帰らないというルールで毎日勉強した。</P>
-      <p>第一志望だけでなく滑り止めもすべて落ちてしまい挫折を経験。</p>
-    </div>
-
-    <div class="event">
-      <h2>大学</h2>
-
-      <p>＜化学＞</p>
-      <p>幅広く色々なことを学ぶことができ、将来の可能性が広がると考え、化学分野を専攻。</p>
-      <P>土や海で分解可能なプラスチックの研究を本学の学長の研究室で行っている。</P>
-      
-      <p>＜アルバイト＞</p>
-      <p>初アルバイトの居酒屋で月150時間以上の労働、毎勤務後の説教に1年間たえ、成績が下がったため退職。</p>
-      <p>現在は飲食店と資格を取得したためガソリンスタンドで勤務。</p>
-      
-      <p>＜課外活動＞</p>
-      <p>北陸で有名なラーメンチェーン店（８番らーめん）と協力し、石川（北陸）を元気づけるプロジェクトに参加。</p>
-      <p>2年次から商品開発班のリーダーを務め、4年間で立ち上げから新商品を二回開発し販売まで行った。</p>
-      <p>URL</p>
-
-      <p>＜スポーツ＞</p>
-      <p>フットサルサークルに1～3年次まで所属。</p>
-      <p>2年次からアルバイト先の仲間たちとフットサルチームを作り、社会人の方たちと試合を行っている。</p>
-    
-      <p>＜就職活動＞</p>
-      <p>始めは食品関係に興味があったが、能登半島地震でのITの活躍とAIの発展に感動し、IT企業を志す。</p>
-      <p>人と協力し何かを作り上げることが好きで、自分の強みである継続力と行動力を生かせるエンジニアを志す。</p>
-      <P>自営業をしている父の影響で、マネジメントや教育、経営などにも興味があり、いずれはリーダーのようなポジションにつきたい。</P>
-    </div>
-
-    <div class="event">
-      <h2>現在</h2>
-      <p>＜取り組み＞</p>
-      <p>卒業研究として土や海で分解可能なプラスチックの研究を本学の学長の研究室で行っている。</p>
-      <p>Web開発の学習を3月から開始し、HTML/CSS/JavaScriptで自己紹介サイトを作成している。</p>
-      <p>基本情報技術者の資格取得に向けて勉強をしている。</p>
-
-      <p>＜取得資格＞</p>
-      <p>普通自動車免許</p>
-      <p>危険物取扱者甲種</p>
-      <p>ITパスポート</p>
-      <p>学長褒賞4回</p>
-    </div>
-
-  </div>
-</section>
-
-  <script src="script.js"></script>
-</body>
-</html>
+ <script src="script.js"></script>
+  </body>
+  </html>

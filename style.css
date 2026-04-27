@@ -1,20 +1,45 @@
-/* ===== 全体設定 ===== */
+/* ===== カラーパレット ===== */
+:root {
+  /* ライトモード */
+  --bg: #f5f8fc;
+  --text: #333;
+  --primary: #3b82f6;
+  --primary-dark: #1e3a8a;
+  --secondary: #2563eb;
+  --card: #ffffff;
+  --border: #ddd;
+  --hover: #e0ecff;
+}
+
+/* ダークモード */
+body.dark {
+  --bg: #0f172a;
+  --text: #e5e7eb;
+  --primary: #60a5fa;
+  --primary-dark: #bfdbfe;
+  --secondary: #93c5fd;
+  --card: #1e293b;
+  --border: #334155;
+  --hover: rgba(96, 165, 250, 0.2);
+}
+
+/* ===== 全体 ===== */
 body {
   margin: 0;
   font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
-  background-color: #f5f8fc;
-  color: #333;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 /* ===== 見出し ===== */
 h1 {
-  color: #1e3a8a;
-  border-bottom: 3px solid #3b82f6;
+  color: var(--primary-dark);
+  border-bottom: 3px solid var(--primary);
   padding-bottom: 5px;
 }
 
 h2 {
-  color: #2563eb;
+  color: var(--secondary);
 }
 
 /* ===== メニューボタン ===== */
@@ -23,7 +48,7 @@ h2 {
   top: 15px;
   left: 15px;
   font-size: 24px;
-  background-color: #3b82f6;
+  background-color: var(--primary);
   color: white;
   padding: 10px 15px;
   border-radius: 8px;
@@ -33,7 +58,7 @@ h2 {
 }
 
 #menu-btn:hover {
-  background-color: #2563eb;
+  background-color: var(--secondary);
 }
 
 /* ===== メニュー ===== */
@@ -41,7 +66,7 @@ h2 {
   position: fixed;
   top: 60px;
   left: 15px;
-  background-color: white;
+  background-color: var(--card);
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   padding: 10px;
@@ -62,21 +87,22 @@ h2 {
 }
 
 #menu li:hover {
-  background-color: #e0ecff;
+  background-color: var(--hover);
 }
 
 /* ===== ページ ===== */
 .page {
-  padding: 80px 20px 20px 20px;
+  padding: 80px 20px 20px;
   max-width: 800px;
   margin: auto;
+  animation: fadeIn 0.4s ease;
 }
 
 .hidden {
   display: none;
 }
 
-/* ===== ボタン（詳しく知る） ===== */
+/* ===== ボタン ===== */
 .link-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -85,7 +111,7 @@ h2 {
 }
 
 .link-buttons button {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: white;
   border: none;
   padding: 10px 15px;
@@ -111,6 +137,13 @@ h2 {
   max-width: 250px;
   border-radius: 10px;
   object-fit: cover;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.images img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 /* ===== テーブル ===== */
@@ -121,55 +154,127 @@ table {
 }
 
 th {
-  background-color: #3b82f6;
+  background-color: var(--primary);
   color: white;
   padding: 10px;
 }
 
 td {
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
   padding: 10px;
 }
 
 tr:nth-child(even) {
-  background-color: #f0f6ff;
+  background-color: var(--hover);
 }
 
 /* ===== タイムライン ===== */
 .timeline {
-  border-left: 3px solid #3b82f6;
+  border-left: 3px solid var(--primary);
   padding-left: 20px;
   margin-top: 20px;
 }
 
 .event {
   margin-bottom: 20px;
-  position: relative;
 }
 
-.event::before {
-  content: "";
+/* ===== ダークモードボタン ===== */
+#dark-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+}
+
+/* ===== モーダル（整理型） ===== */
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none; /* ← 初期は非表示 */
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* 表示状態 */
+#modal.active {
+  display: flex;
+  animation: fadeIn 0.3s;
+}
+
+/* 画像 */
+#modal img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* 閉じるボタン */
+#close {
   position: absolute;
-  left: -12px;
-  top: 5px;
-  width: 10px;
-  height: 10px;
-  background-color: #3b82f6;
-  border-radius: 50%;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
 }
 
 /* ===== アニメーション ===== */
-.page {
-  animation: fadeIn 0.4s ease;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
   }
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 600px) {
+
+  .page {
+    padding: 70px 10px;
+  }
+
+  #menu {
+    width: 150px;
+  }
+
+  .link-buttons {
+    flex-direction: column;
+  }
+
+  .link-buttons button {
+    width: 100%;
+  }
+
+  .images {
+    flex-direction: column;
+  }
+
+  .images img {
+    max-width: 100%;
+  }
+
+  table {
+    font-size: 14px;
+  }
+}
+
+/* タップしやすく */
+button {
+  min-height: 44px;
 }
