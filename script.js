@@ -82,6 +82,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
+// =========================
+// 画像スワイプ機能
+// =========================
+const images = document.querySelectorAll(".images img");
+let currentIndex = 0;
+
+// 画像クリック時にindex記録
+images.forEach((img, index) => {
+  img.addEventListener("click", () => {
+    currentIndex = index;
+  });
+});
+
+// タッチ開始位置
+let startX = 0;
+
+// タッチ開始
+if (modal) {
+  modal.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+// タッチ終了
+ modal.addEventListener("touchend", (e) => {
+  let endX = e.changedTouches[0].clientX;
+  let diff = startX - endX;
+
+  if (Math.abs(diff) > 50) {
+
+    if (diff > 0) {
+      currentIndex = (currentIndex + 1) % images.length;
+    } else {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+    }
+
+    if (modalImg) {
+      modalImg.src = images[currentIndex].src;
+    }
+  }
+});
+
+}
+
+// =========================
+// キーボード操作（追加）
+// =========================
+document.addEventListener("keydown", (e) => {
+  if (!modal || !modal.classList.contains("active")) return;
+
+  if (e.key === "ArrowRight") {
+    currentIndex = (currentIndex + 1) % images.length;
+  }
+
+  if (e.key === "ArrowLeft") {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+  }
+
+  modalImg.src = images[currentIndex].src;
+});
 });
 
 
