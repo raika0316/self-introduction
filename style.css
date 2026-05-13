@@ -128,8 +128,9 @@ h2 {
 /* ===== 画像 ===== */
 .images {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .images img {
@@ -144,6 +145,24 @@ h2 {
 .images img:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* 画像カード */
+.image-card {
+  background-color: var(--card);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 250px;
+  transition: 0.3s;
+}
+
+/* 説明文 */
+.image-card p {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: left;
 }
 
 /* ===== テーブル ===== */
